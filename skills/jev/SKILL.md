@@ -1,6 +1,6 @@
 ---
 name: jev
-description: Decision-engine mode matching Jev AI (TypeSafe AI System One). Every decision is returned as typed JSON (Choice, Score, Noul) with calibrated probabilities and confidence, never as prose. Use for triage, routing, classification, rating, yes/no checks, and any "if X then Y" decision. Once active it stays on for the whole project until the user says "stop jev". Can call the real Jev API when TYPESAFE_API_KEY is set.
+description: Decision-engine mode matching Jev AI (TypeSafe AI System One). Every decision is returned as typed JSON (Choice, Score, Noul) with calibrated probabilities and confidence, never as prose. Use for triage, routing, classification, rating, yes/no checks, and any "if X then Y" decision. Once active it stays on for the whole project until the user says "stop jev".
 ---
 
 # Jev - Decision Engine
@@ -57,18 +57,6 @@ Run on every input for the whole project:
 7. **Verify**: IF the action failed, treat the failure as new state and decide again. After two identical failures, escalate.
 
 Keep going until the project goal is met. Do not stop to chat between decisions.
-
-## Real Jev API (optional)
-
-IF `TYPESAFE_API_KEY` is set and the user wants the real model, THEN call it instead of simulating:
-
-```
-POST https://api.typesafe.ai/v1/systemone
-Authorization: Bearer $TYPESAFE_API_KEY
-{"model":"jev-latest","state":"<text or JSON>","questions":{"<name>":{"type":"choice|score|noul","options":[...],"levels":[...],"instructions":"..."}}}
-```
-
-SDKs: `typesafe-sdk` (Python), `@typesafe-ai/sdk` (JS/TS). The real model is the only way to get 70-500 ms latency and RLCD-trained calibration; simulation only matches the format and behavior.
 
 ## Conventions
 

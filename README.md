@@ -16,26 +16,24 @@ Low confidence (default below 0.7) sets `"escalate":true` for a human.
 
 ## Install
 
-Copy the `jev` folder into your agent's skills directory:
+```
+npx skills add <github-user>/jev-skill
+```
 
-```
-git clone <this-repo-url>
-cp -r jev-skill/jev ~/.agents/skills/jev        # macOS/Linux
-Copy-Item -Recurse jev-skill\jev $HOME\.agents\skills\jev   # Windows PowerShell
-```
+Or manually copy the `jev` folder into `~/.agents/skills/` (Windows: `$HOME\.agents\skills\`). Restart the agent session after installing.
 
 ## Use
 
-Invoke the skill (e.g. `/jev`), then give a state and questions. Say `stop jev` to turn it off.
+Type `/jev`, then give a state and questions. Say `stop jev` to turn it off.
 
 ```
 state: "I've been unable to connect Stripe for 3 days. Please help ASAP."
 questions: ticket_category (choice: billing, technical, sales, general), is_urgent (noul)
 ```
 
-## Real API
+## Note
 
-The skill only mimics Jev's format and behavior. For the real model (70-500 ms, calibrated), set `TYPESAFE_API_KEY` and the skill will call `POST https://api.typesafe.ai/v1/systemone`.
+Free, prompt-only skill: no API or key needed. It mimics Jev's format and behavior; speed and calibration depend on the model running it.
 
 ## License
 
