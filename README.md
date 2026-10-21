@@ -17,7 +17,7 @@ Low confidence (default below 0.7) sets `"escalate":true` for a human.
 ## Install
 
 ```
-npx skills add <github-user>/jev-skill
+npx skills add https://github.com/porchyy/-skills-jev.git/jev-skill
 ```
 
 Or manually copy the `jev` folder into `~/.agents/skills/` (Windows: `$HOME\.agents\skills\`). Restart the agent session after installing.
